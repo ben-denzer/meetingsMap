@@ -1,0 +1,859 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Enthusiasm should match snapshot with enthusiasmLevel 1`] = `
+ShallowWrapper {
+  "length": 1,
+  Symbol(enzyme.__root__): [Circular],
+  Symbol(enzyme.__unrendered__): <Enthusiasm
+    enthusiasmLevel={2}
+    name="Nobody"
+    onDecrement={[MockFunction]}
+    onIncrement={[MockFunction]}
+    onReset={[MockFunction]}
+  />,
+  Symbol(enzyme.__renderer__): Object {
+    "batchedUpdates": [Function],
+    "getNode": [Function],
+    "render": [Function],
+    "simulateEvent": [Function],
+    "unmount": [Function],
+  },
+  Symbol(enzyme.__node__): Object {
+    "instance": null,
+    "key": undefined,
+    "nodeType": "class",
+    "props": Object {
+      "children": Array [
+        <div
+          className="greeting"
+        >
+          Hello 
+          Nobody!!
+        </div>,
+        <div>
+          <button
+            id="decrement"
+            onClick={[MockFunction]}
+          >
+             
+            -
+             
+          </button>
+          <button
+            id="increment"
+            onClick={[MockFunction]}
+          >
+             
+            +
+             
+          </button>
+          <button
+            id="reset"
+            onClick={[MockFunction]}
+          >
+             
+            Reset
+             
+          </button>
+        </div>,
+      ],
+    },
+    "ref": null,
+    "rendered": Array [
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "host",
+        "props": Object {
+          "children": Array [
+            "Hello ",
+            "Nobody!!",
+          ],
+          "className": "greeting",
+        },
+        "ref": null,
+        "rendered": Array [
+          "Hello ",
+          "Nobody!!",
+        ],
+        "type": "div",
+      },
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "host",
+        "props": Object {
+          "children": Array [
+            <button
+              id="decrement"
+              onClick={[MockFunction]}
+            >
+               
+              -
+               
+            </button>,
+            <button
+              id="increment"
+              onClick={[MockFunction]}
+            >
+               
+              +
+               
+            </button>,
+            <button
+              id="reset"
+              onClick={[MockFunction]}
+            >
+               
+              Reset
+               
+            </button>,
+          ],
+        },
+        "ref": null,
+        "rendered": Array [
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "host",
+            "props": Object {
+              "children": Array [
+                " ",
+                "-",
+                " ",
+              ],
+              "id": "decrement",
+              "onClick": [MockFunction],
+            },
+            "ref": null,
+            "rendered": Array [
+              " ",
+              "-",
+              " ",
+            ],
+            "type": "button",
+          },
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "host",
+            "props": Object {
+              "children": Array [
+                " ",
+                "+",
+                " ",
+              ],
+              "id": "increment",
+              "onClick": [MockFunction],
+            },
+            "ref": null,
+            "rendered": Array [
+              " ",
+              "+",
+              " ",
+            ],
+            "type": "button",
+          },
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "host",
+            "props": Object {
+              "children": Array [
+                " ",
+                "Reset",
+                " ",
+              ],
+              "id": "reset",
+              "onClick": [MockFunction],
+            },
+            "ref": null,
+            "rendered": Array [
+              " ",
+              "Reset",
+              " ",
+            ],
+            "type": "button",
+          },
+        ],
+        "type": "div",
+      },
+    ],
+    "type": [Function],
+  },
+  Symbol(enzyme.__nodes__): Array [
+    Object {
+      "instance": null,
+      "key": undefined,
+      "nodeType": "class",
+      "props": Object {
+        "children": Array [
+          <div
+            className="greeting"
+          >
+            Hello 
+            Nobody!!
+          </div>,
+          <div>
+            <button
+              id="decrement"
+              onClick={[MockFunction]}
+            >
+               
+              -
+               
+            </button>
+            <button
+              id="increment"
+              onClick={[MockFunction]}
+            >
+               
+              +
+               
+            </button>
+            <button
+              id="reset"
+              onClick={[MockFunction]}
+            >
+               
+              Reset
+               
+            </button>
+          </div>,
+        ],
+      },
+      "ref": null,
+      "rendered": Array [
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "host",
+          "props": Object {
+            "children": Array [
+              "Hello ",
+              "Nobody!!",
+            ],
+            "className": "greeting",
+          },
+          "ref": null,
+          "rendered": Array [
+            "Hello ",
+            "Nobody!!",
+          ],
+          "type": "div",
+        },
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "host",
+          "props": Object {
+            "children": Array [
+              <button
+                id="decrement"
+                onClick={[MockFunction]}
+              >
+                 
+                -
+                 
+              </button>,
+              <button
+                id="increment"
+                onClick={[MockFunction]}
+              >
+                 
+                +
+                 
+              </button>,
+              <button
+                id="reset"
+                onClick={[MockFunction]}
+              >
+                 
+                Reset
+                 
+              </button>,
+            ],
+          },
+          "ref": null,
+          "rendered": Array [
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "host",
+              "props": Object {
+                "children": Array [
+                  " ",
+                  "-",
+                  " ",
+                ],
+                "id": "decrement",
+                "onClick": [MockFunction],
+              },
+              "ref": null,
+              "rendered": Array [
+                " ",
+                "-",
+                " ",
+              ],
+              "type": "button",
+            },
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "host",
+              "props": Object {
+                "children": Array [
+                  " ",
+                  "+",
+                  " ",
+                ],
+                "id": "increment",
+                "onClick": [MockFunction],
+              },
+              "ref": null,
+              "rendered": Array [
+                " ",
+                "+",
+                " ",
+              ],
+              "type": "button",
+            },
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "host",
+              "props": Object {
+                "children": Array [
+                  " ",
+                  "Reset",
+                  " ",
+                ],
+                "id": "reset",
+                "onClick": [MockFunction],
+              },
+              "ref": null,
+              "rendered": Array [
+                " ",
+                "Reset",
+                " ",
+              ],
+              "type": "button",
+            },
+          ],
+          "type": "div",
+        },
+      ],
+      "type": [Function],
+    },
+  ],
+  Symbol(enzyme.__options__): Object {
+    "adapter": ReactSixteenAdapter {
+      "options": Object {
+        "enableComponentDidUpdateOnSetState": true,
+      },
+    },
+  },
+}
+`;
+
+exports[`Enthusiasm should match snapshot with invalid enthusiasmLevel 1`] = `
+ShallowWrapper {
+  "length": 1,
+  Symbol(enzyme.__root__): [Circular],
+  Symbol(enzyme.__unrendered__): <Enthusiasm
+    enthusiasmLevel={-1}
+    name="Nobody"
+    onDecrement={[MockFunction]}
+    onIncrement={[MockFunction]}
+    onReset={[MockFunction]}
+  />,
+  Symbol(enzyme.__renderer__): Object {
+    "batchedUpdates": [Function],
+    "getNode": [Function],
+    "render": [Function],
+    "simulateEvent": [Function],
+    "unmount": [Function],
+  },
+  Symbol(enzyme.__node__): Object {
+    "instance": null,
+    "key": undefined,
+    "nodeType": "host",
+    "props": Object {
+      "children": Array [
+        <div>
+          You Broke The System
+        </div>,
+        " ",
+        <button
+          id="reset"
+          onClick={[MockFunction]}
+        >
+           
+          Reset
+           
+        </button>,
+      ],
+    },
+    "ref": null,
+    "rendered": Array [
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "host",
+        "props": Object {
+          "children": "You Broke The System",
+        },
+        "ref": null,
+        "rendered": "You Broke The System",
+        "type": "div",
+      },
+      " ",
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "host",
+        "props": Object {
+          "children": Array [
+            " ",
+            "Reset",
+            " ",
+          ],
+          "id": "reset",
+          "onClick": [MockFunction],
+        },
+        "ref": null,
+        "rendered": Array [
+          " ",
+          "Reset",
+          " ",
+        ],
+        "type": "button",
+      },
+    ],
+    "type": "div",
+  },
+  Symbol(enzyme.__nodes__): Array [
+    Object {
+      "instance": null,
+      "key": undefined,
+      "nodeType": "host",
+      "props": Object {
+        "children": Array [
+          <div>
+            You Broke The System
+          </div>,
+          " ",
+          <button
+            id="reset"
+            onClick={[MockFunction]}
+          >
+             
+            Reset
+             
+          </button>,
+        ],
+      },
+      "ref": null,
+      "rendered": Array [
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "host",
+          "props": Object {
+            "children": "You Broke The System",
+          },
+          "ref": null,
+          "rendered": "You Broke The System",
+          "type": "div",
+        },
+        " ",
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "host",
+          "props": Object {
+            "children": Array [
+              " ",
+              "Reset",
+              " ",
+            ],
+            "id": "reset",
+            "onClick": [MockFunction],
+          },
+          "ref": null,
+          "rendered": Array [
+            " ",
+            "Reset",
+            " ",
+          ],
+          "type": "button",
+        },
+      ],
+      "type": "div",
+    },
+  ],
+  Symbol(enzyme.__options__): Object {
+    "adapter": ReactSixteenAdapter {
+      "options": Object {
+        "enableComponentDidUpdateOnSetState": true,
+      },
+    },
+  },
+}
+`;
+
+exports[`Enthusiasm should match snapshot with no enthusiasmLevel 1`] = `
+ShallowWrapper {
+  "length": 1,
+  Symbol(enzyme.__root__): [Circular],
+  Symbol(enzyme.__unrendered__): <Enthusiasm
+    enthusiasmLevel={undefined}
+    name="Nobody"
+    onDecrement={[MockFunction]}
+    onIncrement={[MockFunction]}
+    onReset={[MockFunction]}
+  />,
+  Symbol(enzyme.__renderer__): Object {
+    "batchedUpdates": [Function],
+    "getNode": [Function],
+    "render": [Function],
+    "simulateEvent": [Function],
+    "unmount": [Function],
+  },
+  Symbol(enzyme.__node__): Object {
+    "instance": null,
+    "key": undefined,
+    "nodeType": "class",
+    "props": Object {
+      "children": Array [
+        <div
+          className="greeting"
+        >
+          Hello 
+          Nobody!
+        </div>,
+        <div>
+          <button
+            id="decrement"
+            onClick={[MockFunction]}
+          >
+             
+            -
+             
+          </button>
+          <button
+            id="increment"
+            onClick={[MockFunction]}
+          >
+             
+            +
+             
+          </button>
+          <button
+            id="reset"
+            onClick={[MockFunction]}
+          >
+             
+            Reset
+             
+          </button>
+        </div>,
+      ],
+    },
+    "ref": null,
+    "rendered": Array [
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "host",
+        "props": Object {
+          "children": Array [
+            "Hello ",
+            "Nobody!",
+          ],
+          "className": "greeting",
+        },
+        "ref": null,
+        "rendered": Array [
+          "Hello ",
+          "Nobody!",
+        ],
+        "type": "div",
+      },
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "host",
+        "props": Object {
+          "children": Array [
+            <button
+              id="decrement"
+              onClick={[MockFunction]}
+            >
+               
+              -
+               
+            </button>,
+            <button
+              id="increment"
+              onClick={[MockFunction]}
+            >
+               
+              +
+               
+            </button>,
+            <button
+              id="reset"
+              onClick={[MockFunction]}
+            >
+               
+              Reset
+               
+            </button>,
+          ],
+        },
+        "ref": null,
+        "rendered": Array [
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "host",
+            "props": Object {
+              "children": Array [
+                " ",
+                "-",
+                " ",
+              ],
+              "id": "decrement",
+              "onClick": [MockFunction],
+            },
+            "ref": null,
+            "rendered": Array [
+              " ",
+              "-",
+              " ",
+            ],
+            "type": "button",
+          },
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "host",
+            "props": Object {
+              "children": Array [
+                " ",
+                "+",
+                " ",
+              ],
+              "id": "increment",
+              "onClick": [MockFunction],
+            },
+            "ref": null,
+            "rendered": Array [
+              " ",
+              "+",
+              " ",
+            ],
+            "type": "button",
+          },
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "host",
+            "props": Object {
+              "children": Array [
+                " ",
+                "Reset",
+                " ",
+              ],
+              "id": "reset",
+              "onClick": [MockFunction],
+            },
+            "ref": null,
+            "rendered": Array [
+              " ",
+              "Reset",
+              " ",
+            ],
+            "type": "button",
+          },
+        ],
+        "type": "div",
+      },
+    ],
+    "type": [Function],
+  },
+  Symbol(enzyme.__nodes__): Array [
+    Object {
+      "instance": null,
+      "key": undefined,
+      "nodeType": "class",
+      "props": Object {
+        "children": Array [
+          <div
+            className="greeting"
+          >
+            Hello 
+            Nobody!
+          </div>,
+          <div>
+            <button
+              id="decrement"
+              onClick={[MockFunction]}
+            >
+               
+              -
+               
+            </button>
+            <button
+              id="increment"
+              onClick={[MockFunction]}
+            >
+               
+              +
+               
+            </button>
+            <button
+              id="reset"
+              onClick={[MockFunction]}
+            >
+               
+              Reset
+               
+            </button>
+          </div>,
+        ],
+      },
+      "ref": null,
+      "rendered": Array [
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "host",
+          "props": Object {
+            "children": Array [
+              "Hello ",
+              "Nobody!",
+            ],
+            "className": "greeting",
+          },
+          "ref": null,
+          "rendered": Array [
+            "Hello ",
+            "Nobody!",
+          ],
+          "type": "div",
+        },
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "host",
+          "props": Object {
+            "children": Array [
+              <button
+                id="decrement"
+                onClick={[MockFunction]}
+              >
+                 
+                -
+                 
+              </button>,
+              <button
+                id="increment"
+                onClick={[MockFunction]}
+              >
+                 
+                +
+                 
+              </button>,
+              <button
+                id="reset"
+                onClick={[MockFunction]}
+              >
+                 
+                Reset
+                 
+              </button>,
+            ],
+          },
+          "ref": null,
+          "rendered": Array [
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "host",
+              "props": Object {
+                "children": Array [
+                  " ",
+                  "-",
+                  " ",
+                ],
+                "id": "decrement",
+                "onClick": [MockFunction],
+              },
+              "ref": null,
+              "rendered": Array [
+                " ",
+                "-",
+                " ",
+              ],
+              "type": "button",
+            },
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "host",
+              "props": Object {
+                "children": Array [
+                  " ",
+                  "+",
+                  " ",
+                ],
+                "id": "increment",
+                "onClick": [MockFunction],
+              },
+              "ref": null,
+              "rendered": Array [
+                " ",
+                "+",
+                " ",
+              ],
+              "type": "button",
+            },
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "host",
+              "props": Object {
+                "children": Array [
+                  " ",
+                  "Reset",
+                  " ",
+                ],
+                "id": "reset",
+                "onClick": [MockFunction],
+              },
+              "ref": null,
+              "rendered": Array [
+                " ",
+                "Reset",
+                " ",
+              ],
+              "type": "button",
+            },
+          ],
+          "type": "div",
+        },
+      ],
+      "type": [Function],
+    },
+  ],
+  Symbol(enzyme.__options__): Object {
+    "adapter": ReactSixteenAdapter {
+      "options": Object {
+        "enableComponentDidUpdateOnSetState": true,
+      },
+    },
+  },
+}
+`;
