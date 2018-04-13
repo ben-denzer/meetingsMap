@@ -10,6 +10,7 @@ enum Day {
 
 interface Meeting {
   locationFk: number;
+  meetingType: string;
   meetingName: string;
   day: Day;
   hour: number;
@@ -21,5 +22,17 @@ interface Meeting {
   womensMeeting?: boolean;
 }
 
-export { Day };
+const mockMeeting = {
+  locationFk: 12,
+  meetingType: 'aa',
+  meetingName: 'My New Meeting',
+  day: Day.Monday,
+  hour: 12,
+  min: 0,
+  type: 'Big Book Study',
+  open: true,
+  meetingNotes: 'Here are some notes for the meeting'
+};
+
+export { Day, mockMeeting };
 export default Meeting;

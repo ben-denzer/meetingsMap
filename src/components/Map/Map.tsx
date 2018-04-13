@@ -10,6 +10,7 @@ import Meeting from '../../types/Meeting';
 
 import { LoadingWrapper, MapWrapper } from './MapStyles';
 import MapMarker from '../MapMarker/MapMarker';
+import UserMarker from '../UserMarker/UserMarker';
 
 interface Props {
   center: MapCoords;
@@ -17,10 +18,11 @@ interface Props {
 }
 
 interface State {
-  userLocation: MapCoords | null;
+  hoveredId: number | null;
   loading: boolean;
   meetingLocations: MeetingLocation[];
   meetings: Meeting[];
+  userLocation: MapCoords | null;
 }
 
 class SimpleMap extends React.Component<Props, State> {
@@ -28,6 +30,7 @@ class SimpleMap extends React.Component<Props, State> {
     super(props);
 
     this.state = {
+      hoveredId: null,
       loading: true,
       meetingLocations: [],
       meetings: [],
@@ -92,23 +95,31 @@ class SimpleMap extends React.Component<Props, State> {
     console.log('err', err);
   }
 
-  showMeetingLocations(locations: MeetingLocation[]): JSX.Element[] {
-    return locations.map(a => {
+  showMeetingLocations(
+    locations: MeetingLocation[],
+    meetings: Meeting[]
+  ): JSX.Element[] {
+    return locations.map(location => {
+      const meetingsAtLocation: Meeting[] = meetings.filter(
+        meeting => meeting.locationFk === location.locationId
+      );
       return (
         <MapMarker
-          key={a.locationId}
-          lat={a.coords.lat}
-          lng={a.coords.lng}
-          markerType="aa"
+          key={location.locationId}
+          lat={location.coords.lat}
+          lng={location.coords.lng}
+          locationData={location}
+          markerType="meeting"
+          meetingsAtLocation={meetingsAtLocation}
         />
       );
     });
   }
 
   render(): JSX.Element {
-    const { meetingLocations, loading, userLocation } = this.state;
+    const { meetingLocations, meetings, loading, userLocation } = this.state;
     const center = this.getDefaultCenter();
-    const locations = this.showMeetingLocations(meetingLocations);
+    const locations = this.showMeetingLocations(meetingLocations, meetings);
 
     if (loading) {
       return <LoadingWrapper>Loading...</LoadingWrapper>;
@@ -124,11 +135,7 @@ class SimpleMap extends React.Component<Props, State> {
           resetBoundsOnResize={true}
         >
           {userLocation && (
-            <MapMarker
-              lat={userLocation.lat}
-              lng={userLocation.lng}
-              markerType="user"
-            />
+            <UserMarker lat={userLocation.lat} lng={userLocation.lng} />
           )}
           {locations}
         </GoogleMapReact>

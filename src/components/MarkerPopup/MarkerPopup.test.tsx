@@ -1,6 +1,6 @@
 import * as React from 'react';
 import { shallow } from 'enzyme';
-import MapMarker from './MapMarker';
+import MarkerPopup from './MarkerPopup';
 import { mockMeetingLocation } from '../../types/MeetingLocation';
 import Meeting, { mockMeeting } from '../../types/Meeting';
 
@@ -9,25 +9,10 @@ const meetingsAtLocation: Meeting[] = [mockMeeting];
 describe('MarkerPopup', () => {
   it('should render without crashing', () => {
     shallow(
-      <MapMarker
-        lat={35}
-        lng={-115}
+      <MarkerPopup
         locationData={mockMeetingLocation}
-        markerType="meeting"
         meetingsAtLocation={meetingsAtLocation}
       />
     );
-  });
-  it('should match snapshot', () => {
-    const wrapper = shallow(
-      <MapMarker
-        lat={35}
-        lng={-115}
-        locationData={mockMeetingLocation}
-        markerType="meeting"
-        meetingsAtLocation={meetingsAtLocation}
-      />
-    );
-    expect(wrapper).toMatchSnapshot();
   });
 });

@@ -1,35 +1,7 @@
 import Meeting, { Day } from '../types/Meeting';
 import MeetingLocation from 'types/MeetingLocation';
-// https://www.lvcentraloffice.org/aameetinglisting/business-place/henderson/
-// export default interface Meeting {
-//   meetingName: string;
-//   clubName?: string;
-//   day: Day;
-//   hour: number;
-//   min: number;
-//   type: string;
-//   address: string;
-//   city: string;
-//   state: string;
-//   zip: string;
-//   website?: string;
-//   phone?: string;
-//   open: boolean;
-//   notes?: string;
-// };
 
 export const hendersonMeetingLocations: MeetingLocation[] = [
-  {
-    locationId: 0,
-    clubName: 'Green Valley Club',
-    address: '1481 W. Warm Springs #137',
-    city: 'Henderson',
-    state: 'NV',
-    zip: '89014',
-    coords: { lat: 36.055097, lng: -115.049697 },
-    website: 'www.greenvalleyclub.org',
-    phone: '(702) 433-9550'
-  },
   {
     locationId: 1,
     clubName: '51 Club',
@@ -56,12 +28,24 @@ export const hendersonMeetingLocations: MeetingLocation[] = [
     state: 'NV',
     zip: '89052',
     coords: { lat: 35.979774, lng: -115.094369 }
+  },
+  {
+    locationId: 4,
+    clubName: 'Green Valley Club',
+    address: '1481 W. Warm Springs #137',
+    city: 'Henderson',
+    state: 'NV',
+    zip: '89014',
+    coords: { lat: 36.055097, lng: -115.049697 },
+    website: 'www.greenvalleyclub.org',
+    phone: '(702) 433-9550'
   }
 ];
 
 export const hendersonMeetings: Meeting[] = [
   {
-    locationFk: 0,
+    locationFk: 4,
+    meetingType: 'aa',
     meetingName: 'No Reservations III',
     day: Day.Tuesday,
     hour: 8,
@@ -71,6 +55,7 @@ export const hendersonMeetings: Meeting[] = [
   },
   {
     locationFk: 1,
+    meetingType: 'aa',
     meetingName: 'Newcomers 4PM',
     day: Day.Monday,
     hour: 16,
@@ -80,6 +65,7 @@ export const hendersonMeetings: Meeting[] = [
   },
   {
     meetingName: 'Newcomers 4PM',
+    meetingType: 'aa',
     locationFk: 1,
     day: Day.Tuesday,
     hour: 16,
@@ -89,6 +75,7 @@ export const hendersonMeetings: Meeting[] = [
   },
   {
     meetingName: 'Newcomers 4PM',
+    meetingType: 'aa',
     locationFk: 1,
     day: Day.Wednesday,
     hour: 16,
@@ -98,6 +85,7 @@ export const hendersonMeetings: Meeting[] = [
   },
   {
     meetingName: 'Newcomers 4PM',
+    meetingType: 'aa',
     locationFk: 1,
     day: Day.Thursday,
     hour: 16,
@@ -107,6 +95,7 @@ export const hendersonMeetings: Meeting[] = [
   },
   {
     meetingName: 'Newcomers 4PM',
+    meetingType: 'aa',
     locationFk: 1,
     day: Day.Friday,
     hour: 16,
@@ -116,7 +105,8 @@ export const hendersonMeetings: Meeting[] = [
   },
   {
     meetingName: 'Principles Before Personalities',
-    locationFk: 0,
+    meetingType: 'aa',
+    locationFk: 4,
     day: Day.Tuesday,
     hour: 20,
     min: 30,
@@ -125,7 +115,8 @@ export const hendersonMeetings: Meeting[] = [
   },
   {
     meetingName: 'Principles Before Personalities',
-    locationFk: 0,
+    meetingType: 'aa',
+    locationFk: 4,
     day: Day.Wednesday,
     hour: 20,
     min: 30,
@@ -134,7 +125,8 @@ export const hendersonMeetings: Meeting[] = [
   },
   {
     meetingName: 'Quiet Minds Meditation',
-    locationFk: 0,
+    meetingType: 'aa',
+    locationFk: 4,
     day: Day.Wednesday,
     hour: 16,
     min: 0,
@@ -143,6 +135,7 @@ export const hendersonMeetings: Meeting[] = [
   },
   {
     meetingName: "Men's Eating Meeting",
+    meetingType: 'aa',
     locationFk: 2,
     day: Day.Monday,
     type: "Men's Open Discussion",
@@ -153,6 +146,7 @@ export const hendersonMeetings: Meeting[] = [
   },
   {
     meetingName: "Men's Eating Meeting",
+    meetingType: 'aa',
     locationFk: 2,
     type: "Men's Open Discussion",
     day: Day.Tuesday,
@@ -163,6 +157,7 @@ export const hendersonMeetings: Meeting[] = [
   },
   {
     meetingName: "Men's Eating Meeting",
+    meetingType: 'aa',
     day: Day.Wednesday,
     locationFk: 2,
     type: "Men's Open Discussion",
@@ -173,6 +168,7 @@ export const hendersonMeetings: Meeting[] = [
   },
   {
     meetingName: "Men's Eating Meeting",
+    meetingType: 'aa',
     day: Day.Thursday,
     locationFk: 2,
     type: "Men's Open Discussion",
@@ -183,6 +179,7 @@ export const hendersonMeetings: Meeting[] = [
   },
   {
     meetingName: "Men's Eating Meeting",
+    meetingType: 'aa',
     locationFk: 2,
     day: Day.Friday,
     type: "Men's Open Discussion",
@@ -193,6 +190,7 @@ export const hendersonMeetings: Meeting[] = [
   },
   {
     meetingName: 'Women Standing Sober',
+    meetingType: 'aa',
     locationFk: 1,
     day: Day.Tuesday,
     type: "Women's Open Discussion",
@@ -203,7 +201,8 @@ export const hendersonMeetings: Meeting[] = [
   },
   {
     meetingName: 'Daily Reflections',
-    locationFk: 0,
+    meetingType: 'aa',
+    locationFk: 4,
     day: Day.Sunday,
     type: 'Step Study',
     hour: 10,
@@ -212,7 +211,8 @@ export const hendersonMeetings: Meeting[] = [
   },
   {
     meetingName: 'Daily Reflections',
-    locationFk: 0,
+    meetingType: 'aa',
+    locationFk: 4,
     day: Day.Monday,
     type: 'Big Book Study',
     hour: 10,
@@ -221,7 +221,8 @@ export const hendersonMeetings: Meeting[] = [
   },
   {
     meetingName: 'Daily Reflections',
-    locationFk: 0,
+    meetingType: 'aa',
+    locationFk: 4,
     day: Day.Tuesday,
     type: 'Speaker Open Discussion',
     hour: 10,
@@ -230,7 +231,8 @@ export const hendersonMeetings: Meeting[] = [
   },
   {
     meetingName: 'Daily Reflections',
-    locationFk: 0,
+    meetingType: 'aa',
+    locationFk: 4,
     day: Day.Wednesday,
     type: 'Newcomers Open Discussion',
     hour: 10,
@@ -239,7 +241,8 @@ export const hendersonMeetings: Meeting[] = [
   },
   {
     meetingName: 'Daily Reflections',
-    locationFk: 0,
+    meetingType: 'aa',
+    locationFk: 4,
     day: Day.Thursday,
     type: 'Open Discussion',
     hour: 10,
@@ -248,7 +251,8 @@ export const hendersonMeetings: Meeting[] = [
   },
   {
     meetingName: 'Daily Reflections',
-    locationFk: 0,
+    meetingType: 'aa',
+    locationFk: 4,
     day: Day.Friday,
     type: 'Open Discussion',
     hour: 10,
@@ -257,6 +261,7 @@ export const hendersonMeetings: Meeting[] = [
   },
   {
     meetingName: 'Anthem Sunrise',
+    meetingType: 'aa',
     locationFk: 3,
     day: Day.Tuesday,
     type: 'Open Discussion',
@@ -266,6 +271,7 @@ export const hendersonMeetings: Meeting[] = [
   },
   {
     meetingName: 'Anthem Sunrise',
+    meetingType: 'aa',
     locationFk: 3,
     day: Day.Wednesday,
     type: 'Open Discussion',
@@ -275,6 +281,7 @@ export const hendersonMeetings: Meeting[] = [
   },
   {
     meetingName: 'Anthem Sunrise',
+    meetingType: 'aa',
     locationFk: 3,
     day: Day.Thursday,
     type: 'Open Discussion',

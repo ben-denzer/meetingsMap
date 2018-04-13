@@ -1,21 +1,16 @@
 import styled from 'styled-components';
 
+interface Props {
+  hover?: boolean;
+}
+
 export const MapMarkerWrapper = styled.div`
   position: relative;
-
-  .markerPopup {
-    position: absolute;
-    top: 25px;
-    height: 150px;
-    width: 100px;
-    overflow-y: auto;
-    background: white;
-    border-radius: 10px;
-    padding: 5px;
-  }
+  z-index: ${(p: Props) => (p.hover ? '2' : '1')};
 
   img {
     height: 20px;
     width: auto;
+    position: relative;
   }
 `;
