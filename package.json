@@ -6,6 +6,7 @@
     "@types/enzyme-adapter-react-16": "^1.0.2",
     "@types/react-redux": "^5.0.15",
     "enzyme-adapter-react-16": "^1.1.1",
+    "google-map-react": "^0.34.0",
     "react": "^16.3.1",
     "react-dom": "^16.3.1",
     "react-redux": "^5.0.7",
@@ -25,6 +26,7 @@
   },
   "devDependencies": {
     "@types/enzyme": "^3.1.9",
+    "@types/google-map-react": "^0.23.2",
     "@types/jest": "^22.2.2",
     "@types/node": "^9.6.2",
     "@types/react": "^16.3.5",
