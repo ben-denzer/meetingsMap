@@ -5,6 +5,7 @@ import { mockMeetingLocation } from '../../types/MeetingLocation';
 import Meeting, { mockMeeting } from '../../types/Meeting';
 
 const meetingsAtLocation: Meeting[] = [mockMeeting];
+const selectLocation = jest.fn();
 
 describe('MarkerPopup', () => {
   it('should render without crashing', () => {
@@ -15,6 +16,8 @@ describe('MarkerPopup', () => {
         locationData={mockMeetingLocation}
         markerType="meeting"
         meetingsAtLocation={meetingsAtLocation}
+        selectLocation={selectLocation}
+        selectedLocation={null}
       />
     );
   });
@@ -26,6 +29,8 @@ describe('MarkerPopup', () => {
         locationData={mockMeetingLocation}
         markerType="meeting"
         meetingsAtLocation={meetingsAtLocation}
+        selectLocation={selectLocation}
+        selectedLocation={null}
       />
     );
     expect(wrapper).toMatchSnapshot();

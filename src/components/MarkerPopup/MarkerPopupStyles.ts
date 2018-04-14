@@ -1,13 +1,16 @@
 import styled from 'styled-components';
 
 export const MarkerPopupWrapper = styled.div`
-  position: absolute;
-  top: 25px;
-  height: 150px;
-  width: 100px;
+  height: 200px;
+  width: 300px;
+  font-size: 12px;
   overflow-y: auto;
   background: white;
   border-radius: 10px;
   padding: 5px;
-  z-index: 2222222;
+
+  .clubName {
+    font-size: 14px;
+    font-weight: bold;
+  }
 `;

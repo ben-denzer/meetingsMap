@@ -18,7 +18,9 @@ class App extends React.Component {
           <Route path="/enthusiasm" render={() => <EnthusiasmContainer />} />
           <Route
             path="/map"
-            render={() => <Map center={{ lat: 36.05, lng: -115 }} zoom={10} />}
+            render={() => (
+              <Map defaultCenter={{ lat: 36.05, lng: -115 }} defaultZoom={10} />
+            )}
           />
           <Route component={NotFound} />
         </Switch>

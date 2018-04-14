@@ -13,6 +13,8 @@ interface Props {
   locationData: MeetingLocation;
   markerType: string;
   meetingsAtLocation: Meeting[];
+  selectedLocation: number | null;
+  selectLocation(id: number): void;
 }
 
 const markerTypes = {
@@ -20,19 +22,33 @@ const markerTypes = {
 };
 
 const MapMarker: React.SFC<Props> = (props: Props) => {
-  const { $hover: hover, locationData, markerType, meetingsAtLocation } = props;
+  const {
+    locationData,
+    markerType,
+    meetingsAtLocation,
+    selectLocation,
+    selectedLocation
+  } = props;
+
   if (!meetingsAtLocation || !meetingsAtLocation.length) {
     return null;
   }
+
+  const popupStatus =
+    selectedLocation === locationData.locationId ? 'showPopup' : '';
+
   return (
-    <MapMarkerWrapper hover={hover}>
+    <MapMarkerWrapper
+      className={popupStatus}
+      onClick={() => selectLocation(locationData.locationId)}
+    >
       <img src={markerTypes[markerType]} />
-      {hover && (
+      <div className="popupWrapper">
         <MarkerPopup
           locationData={locationData}
           meetingsAtLocation={meetingsAtLocation}
         />
-      )}
+      </div>
     </MapMarkerWrapper>
   );
 };

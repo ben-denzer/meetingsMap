@@ -8,21 +8,23 @@ import MapCoords from '../../types/MapCoords';
 import MeetingLocation from '../../types/MeetingLocation';
 import Meeting from '../../types/Meeting';
 
-import { LoadingWrapper, MapWrapper } from './MapStyles';
+import { MapWrapper } from './MapStyles';
 import MapMarker from '../MapMarker/MapMarker';
 import UserMarker from '../UserMarker/UserMarker';
 
 interface Props {
-  center: MapCoords;
-  zoom: number;
+  defaultCenter: MapCoords;
+  defaultZoom: number;
 }
 
 interface State {
+  center: MapCoords | undefined; // Can't be null for google-map-react
   hoveredId: number | null;
-  loading: boolean;
   meetingLocations: MeetingLocation[];
   meetings: Meeting[];
+  selectedLocation: number | null;
   userLocation: MapCoords | null;
+  zoom: number | undefined; // Can't be null for google-map-react
 }
 
 class SimpleMap extends React.Component<Props, State> {
@@ -30,19 +32,22 @@ class SimpleMap extends React.Component<Props, State> {
     super(props);
 
     this.state = {
+      center: undefined,
       hoveredId: null,
-      loading: true,
       meetingLocations: [],
       meetings: [],
-      userLocation: null
+      selectedLocation: null,
+      userLocation: null,
+      zoom: undefined
     };
 
     this.getData = this.getData.bind(this);
-    this.getDefaultCenter = this.getDefaultCenter.bind(this);
     this.getUserLocation = this.getUserLocation.bind(this);
     this.getUserLocationSuccess = this.getUserLocationSuccess.bind(this);
     this.getUserLocationError = this.getUserLocationError.bind(this);
+    this.hidePopup = this.hidePopup.bind(this);
     this.init = this.init.bind(this);
+    this.selectLocation = this.selectLocation.bind(this);
     this.showMeetingLocations = this.showMeetingLocations.bind(this);
     this.init();
   }
@@ -60,14 +65,6 @@ class SimpleMap extends React.Component<Props, State> {
       .catch(e => console.log(e));
   }
 
-  getDefaultCenter(): MapCoords {
-    if (!this.state.userLocation) {
-      return this.props.center;
-    }
-    const { lat, lng } = this.state.userLocation;
-    return { lat, lng };
-  }
-
   getUserLocation(): void {
     if ('geolocation' in window.navigator) {
       try {
@@ -77,22 +74,37 @@ class SimpleMap extends React.Component<Props, State> {
           { enableHighAccuracy: true, timeout: 10000 }
         );
       } catch (e) {
-        this.setState({ loading: false });
+        console.log(e);
       }
     } else {
-      this.setState({ loading: false });
+      console.log('no geolocation');
     }
   }
 
   getUserLocationSuccess(position: Position): void {
     const { coords } = position;
     const { latitude: lat, longitude: lng } = coords;
-    this.setState({ loading: false, userLocation: { lat, lng } });
+    this.setState({ center: { lat, lng }, userLocation: { lat, lng } });
   }
 
   getUserLocationError(err: PositionError): void {
-    this.setState({ loading: false });
     console.log('err', err);
+  }
+
+  hidePopup(): void {
+    if (!this.state.selectedLocation) {
+      return;
+    }
+    this.setState({ selectedLocation: null });
+  }
+
+  selectLocation(id: number): void {
+    const locationCoords: MapCoords = this.state.meetingLocations.filter(
+      (m: MeetingLocation) => {
+        return m.locationId === id && m;
+      }
+    )[0].coords;
+    this.setState({ center: locationCoords, selectedLocation: id, zoom: 16 });
   }
 
   showMeetingLocations(
@@ -111,28 +123,32 @@ class SimpleMap extends React.Component<Props, State> {
           locationData={location}
           markerType="meeting"
           meetingsAtLocation={meetingsAtLocation}
+          selectLocation={this.selectLocation}
+          selectedLocation={this.state.selectedLocation}
         />
       );
     });
   }
 
   render(): JSX.Element {
-    const { meetingLocations, meetings, loading, userLocation } = this.state;
-    const center = this.getDefaultCenter();
+    const {
+      center,
+      meetingLocations,
+      meetings,
+      userLocation,
+      zoom
+    } = this.state;
     const locations = this.showMeetingLocations(meetingLocations, meetings);
-
-    if (loading) {
-      return <LoadingWrapper>Loading...</LoadingWrapper>;
-    }
+    console.log('zoom is', zoom);
     return (
-      <MapWrapper>
+      <MapWrapper onClick={this.hidePopup}>
         <GoogleMapReact
-          bootstrapURLKeys={{
-            key: googleMapKey
-          }}
-          defaultCenter={center}
-          defaultZoom={this.props.zoom}
+          bootstrapURLKeys={{ key: googleMapKey }}
+          center={center}
+          defaultCenter={this.props.defaultCenter}
+          defaultZoom={this.props.defaultZoom}
           resetBoundsOnResize={true}
+          zoom={zoom}
         >
           {userLocation && (
             <UserMarker lat={userLocation.lat} lng={userLocation.lng} />

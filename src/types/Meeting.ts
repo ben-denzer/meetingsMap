@@ -10,7 +10,7 @@ enum Day {
 
 interface Meeting {
   locationFk: number;
-  meetingType: string;
+  groupType: string;
   meetingName: string;
   day: Day;
   hour: number;
@@ -24,7 +24,7 @@ interface Meeting {
 
 const mockMeeting = {
   locationFk: 12,
-  meetingType: 'aa',
+  groupType: 'aa',
   meetingName: 'My New Meeting',
   day: Day.Monday,
   hour: 12,

@@ -29,17 +29,19 @@ ShallowWrapper {
       Array [
         Object {
           "day": 1,
+          "groupType": "aa",
           "hour": 12,
           "locationFk": 12,
           "meetingName": "My New Meeting",
           "meetingNotes": "Here are some notes for the meeting",
-          "meetingType": "aa",
           "min": 0,
           "open": true,
           "type": "Big Book Study",
         },
       ]
     }
+    selectLocation={[MockFunction]}
+    selectedLocation={null}
   />,
   Symbol(enzyme.__renderer__): Object {
     "batchedUpdates": [Function],
@@ -54,15 +56,53 @@ ShallowWrapper {
     "nodeType": "class",
     "props": Object {
       "children": Array [
-        undefined,
         <img
           src="triangle.jpg"
         />,
+        <div
+          className="popupWrapper"
+        >
+          <MarkerPopup
+            locationData={
+              Object {
+                "address": "123 Main St",
+                "city": "My Town",
+                "clubName": "My Club",
+                "coords": Object {
+                  "lat": 35,
+                  "lng": -115,
+                },
+                "locationId": 123,
+                "locationNotes": "here are some notes about this location",
+                "phone": "(555) 555-5555",
+                "state": "NV",
+                "website": "https://mywebsite.com",
+                "zip": "89023",
+              }
+            }
+            meetingsAtLocation={
+              Array [
+                Object {
+                  "day": 1,
+                  "groupType": "aa",
+                  "hour": 12,
+                  "locationFk": 12,
+                  "meetingName": "My New Meeting",
+                  "meetingNotes": "Here are some notes for the meeting",
+                  "min": 0,
+                  "open": true,
+                  "type": "Big Book Study",
+                },
+              ]
+            }
+          />
+        </div>,
       ],
+      "className": "",
+      "onClick": [Function],
     },
     "ref": null,
     "rendered": Array [
-      undefined,
       Object {
         "instance": null,
         "key": undefined,
@@ -74,6 +114,88 @@ ShallowWrapper {
         "rendered": null,
         "type": "img",
       },
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "host",
+        "props": Object {
+          "children": <MarkerPopup
+            locationData={
+              Object {
+                "address": "123 Main St",
+                "city": "My Town",
+                "clubName": "My Club",
+                "coords": Object {
+                  "lat": 35,
+                  "lng": -115,
+                },
+                "locationId": 123,
+                "locationNotes": "here are some notes about this location",
+                "phone": "(555) 555-5555",
+                "state": "NV",
+                "website": "https://mywebsite.com",
+                "zip": "89023",
+              }
+            }
+            meetingsAtLocation={
+              Array [
+                Object {
+                  "day": 1,
+                  "groupType": "aa",
+                  "hour": 12,
+                  "locationFk": 12,
+                  "meetingName": "My New Meeting",
+                  "meetingNotes": "Here are some notes for the meeting",
+                  "min": 0,
+                  "open": true,
+                  "type": "Big Book Study",
+                },
+              ]
+            }
+          />,
+          "className": "popupWrapper",
+        },
+        "ref": null,
+        "rendered": Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "function",
+          "props": Object {
+            "locationData": Object {
+              "address": "123 Main St",
+              "city": "My Town",
+              "clubName": "My Club",
+              "coords": Object {
+                "lat": 35,
+                "lng": -115,
+              },
+              "locationId": 123,
+              "locationNotes": "here are some notes about this location",
+              "phone": "(555) 555-5555",
+              "state": "NV",
+              "website": "https://mywebsite.com",
+              "zip": "89023",
+            },
+            "meetingsAtLocation": Array [
+              Object {
+                "day": 1,
+                "groupType": "aa",
+                "hour": 12,
+                "locationFk": 12,
+                "meetingName": "My New Meeting",
+                "meetingNotes": "Here are some notes for the meeting",
+                "min": 0,
+                "open": true,
+                "type": "Big Book Study",
+              },
+            ],
+          },
+          "ref": null,
+          "rendered": null,
+          "type": [Function],
+        },
+        "type": "div",
+      },
     ],
     "type": [Function],
   },
@@ -84,15 +206,53 @@ ShallowWrapper {
       "nodeType": "class",
       "props": Object {
         "children": Array [
-          undefined,
           <img
             src="triangle.jpg"
           />,
+          <div
+            className="popupWrapper"
+          >
+            <MarkerPopup
+              locationData={
+                Object {
+                  "address": "123 Main St",
+                  "city": "My Town",
+                  "clubName": "My Club",
+                  "coords": Object {
+                    "lat": 35,
+                    "lng": -115,
+                  },
+                  "locationId": 123,
+                  "locationNotes": "here are some notes about this location",
+                  "phone": "(555) 555-5555",
+                  "state": "NV",
+                  "website": "https://mywebsite.com",
+                  "zip": "89023",
+                }
+              }
+              meetingsAtLocation={
+                Array [
+                  Object {
+                    "day": 1,
+                    "groupType": "aa",
+                    "hour": 12,
+                    "locationFk": 12,
+                    "meetingName": "My New Meeting",
+                    "meetingNotes": "Here are some notes for the meeting",
+                    "min": 0,
+                    "open": true,
+                    "type": "Big Book Study",
+                  },
+                ]
+              }
+            />
+          </div>,
         ],
+        "className": "",
+        "onClick": [Function],
       },
       "ref": null,
       "rendered": Array [
-        undefined,
         Object {
           "instance": null,
           "key": undefined,
@@ -103,6 +263,88 @@ ShallowWrapper {
           "ref": null,
           "rendered": null,
           "type": "img",
+        },
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "host",
+          "props": Object {
+            "children": <MarkerPopup
+              locationData={
+                Object {
+                  "address": "123 Main St",
+                  "city": "My Town",
+                  "clubName": "My Club",
+                  "coords": Object {
+                    "lat": 35,
+                    "lng": -115,
+                  },
+                  "locationId": 123,
+                  "locationNotes": "here are some notes about this location",
+                  "phone": "(555) 555-5555",
+                  "state": "NV",
+                  "website": "https://mywebsite.com",
+                  "zip": "89023",
+                }
+              }
+              meetingsAtLocation={
+                Array [
+                  Object {
+                    "day": 1,
+                    "groupType": "aa",
+                    "hour": 12,
+                    "locationFk": 12,
+                    "meetingName": "My New Meeting",
+                    "meetingNotes": "Here are some notes for the meeting",
+                    "min": 0,
+                    "open": true,
+                    "type": "Big Book Study",
+                  },
+                ]
+              }
+            />,
+            "className": "popupWrapper",
+          },
+          "ref": null,
+          "rendered": Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "function",
+            "props": Object {
+              "locationData": Object {
+                "address": "123 Main St",
+                "city": "My Town",
+                "clubName": "My Club",
+                "coords": Object {
+                  "lat": 35,
+                  "lng": -115,
+                },
+                "locationId": 123,
+                "locationNotes": "here are some notes about this location",
+                "phone": "(555) 555-5555",
+                "state": "NV",
+                "website": "https://mywebsite.com",
+                "zip": "89023",
+              },
+              "meetingsAtLocation": Array [
+                Object {
+                  "day": 1,
+                  "groupType": "aa",
+                  "hour": 12,
+                  "locationFk": 12,
+                  "meetingName": "My New Meeting",
+                  "meetingNotes": "Here are some notes for the meeting",
+                  "min": 0,
+                  "open": true,
+                  "type": "Big Book Study",
+                },
+              ],
+            },
+            "ref": null,
+            "rendered": null,
+            "type": [Function],
+          },
+          "type": "div",
         },
       ],
       "type": [Function],
