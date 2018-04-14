@@ -11,6 +11,7 @@ describe('MarkerPopup', () => {
   it('should render without crashing', () => {
     shallow(
       <MapMarker
+        isMobile={false}
         lat={35}
         lng={-115}
         locationData={mockMeetingLocation}
@@ -24,6 +25,7 @@ describe('MarkerPopup', () => {
   it('should match snapshot', () => {
     const wrapper = shallow(
       <MapMarker
+        isMobile={false}
         lat={35}
         lng={-115}
         locationData={mockMeetingLocation}

@@ -8,6 +8,7 @@ import MarkerPopup from '../MarkerPopup/MarkerPopup';
 
 interface Props {
   $hover?: boolean;
+  isMobile: boolean;
   lat: number;
   lng: number;
   locationData: MeetingLocation;
@@ -23,6 +24,7 @@ const markerTypes = {
 
 const MapMarker: React.SFC<Props> = (props: Props) => {
   const {
+    isMobile,
     locationData,
     markerType,
     meetingsAtLocation,
@@ -45,6 +47,7 @@ const MapMarker: React.SFC<Props> = (props: Props) => {
       <img src={markerTypes[markerType]} />
       <div className="popupWrapper">
         <MarkerPopup
+          isMobile={isMobile}
           locationData={locationData}
           meetingsAtLocation={meetingsAtLocation}
         />

@@ -19,7 +19,7 @@ class App extends React.Component {
           <Route
             path="/map"
             render={() => (
-              <Map defaultCenter={{ lat: 36.05, lng: -115 }} defaultZoom={10} />
+              <Map defaultCenter={{ lat: 36.05, lng: -115 }} defaultZoom={11} />
             )}
           />
           <Route component={NotFound} />

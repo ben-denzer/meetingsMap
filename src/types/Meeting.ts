@@ -9,6 +9,7 @@ enum Day {
 }
 
 interface Meeting {
+  meetingId: number;
   locationFk: number;
   groupType: string;
   meetingName: string;
@@ -23,6 +24,7 @@ interface Meeting {
 }
 
 const mockMeeting = {
+  meetingId: 1,
   locationFk: 12,
   groupType: 'aa',
   meetingName: 'My New Meeting',

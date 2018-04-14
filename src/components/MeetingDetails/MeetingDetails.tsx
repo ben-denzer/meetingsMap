@@ -1,12 +1,16 @@
 import * as React from 'react';
 import Meeting, { Day } from '../../types/Meeting';
-import { PopupMeetingDetailsWrapper } from './PopupMeetingDetailsStyles';
+import MeetingLocation from '../../types/MeetingLocation';
+import { MeetingDetailsWrapper } from './MeetingDetailsStyles';
+import LocationDetails from '../LocationDetails/LocationDetails';
 
 interface Props {
   meetingInfo: Meeting;
+  locationInfo?: MeetingLocation;
+  inPopup?: boolean;
 }
 
-const PopupMeetingDetails: React.SFC<Props> = (props: Props) => {
+const MeetingDetails: React.SFC<Props> = (props: Props) => {
   const {
     day,
     groupType,
@@ -30,10 +34,14 @@ const PopupMeetingDetails: React.SFC<Props> = (props: Props) => {
   const openOrClosed = (o: boolean): string => (o ? 'Open' : 'Closed');
 
   return (
-    <PopupMeetingDetailsWrapper>
+    <MeetingDetailsWrapper className={props.inPopup ? 'popupDetails' : ''}>
       <div className="heading">
         {groupType.toUpperCase()} - {meetingName}
       </div>
+      {!props.inPopup &&
+        props.locationInfo && (
+          <LocationDetails locationInfo={props.locationInfo} />
+        )}
       <div>
         <span className="day">{Day[day]}</span>{' '}
         <span className="time">{readableTime(hour, min)}</span>{' '}
@@ -49,8 +57,8 @@ const PopupMeetingDetails: React.SFC<Props> = (props: Props) => {
           <span className="special">Notes:</span> {meetingNotes}
         </div>
       )}
-    </PopupMeetingDetailsWrapper>
+    </MeetingDetailsWrapper>
   );
 };
 
-export default PopupMeetingDetails;
+export default MeetingDetails;

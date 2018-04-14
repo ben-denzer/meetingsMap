@@ -8,7 +8,7 @@ const Header: React.SFC<Props> = (props: Props) => {
   return (
     <HeaderWrapper>
       <Link to="/">Home</Link>
-      <Link to="/enthusiasm">Enthusiasm</Link>
+      {/* <Link to="/enthusiasm">Enthusiasm</Link> */}
       <Link to="/map">Map</Link>
     </HeaderWrapper>
   );

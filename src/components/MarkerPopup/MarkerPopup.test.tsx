@@ -10,6 +10,7 @@ describe('MarkerPopup', () => {
   it('should render without crashing', () => {
     shallow(
       <MarkerPopup
+        isMobile={false}
         locationData={mockMeetingLocation}
         meetingsAtLocation={meetingsAtLocation}
       />

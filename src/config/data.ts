@@ -44,6 +44,7 @@ export const hendersonMeetingLocations: MeetingLocation[] = [
 
 export const hendersonMeetings: Meeting[] = [
   {
+    meetingId: 1,
     locationFk: 4,
     groupType: 'aa',
     meetingName: 'No Reservations III',
@@ -54,6 +55,7 @@ export const hendersonMeetings: Meeting[] = [
     open: true
   },
   {
+    meetingId: 2,
     locationFk: 1,
     groupType: 'aa',
     meetingName: 'Newcomers 4PM',
@@ -64,6 +66,7 @@ export const hendersonMeetings: Meeting[] = [
     open: true
   },
   {
+    meetingId: 3,
     meetingName: 'Newcomers 4PM',
     groupType: 'aa',
     locationFk: 1,
@@ -74,6 +77,7 @@ export const hendersonMeetings: Meeting[] = [
     open: true
   },
   {
+    meetingId: 4,
     meetingName: 'Newcomers 4PM',
     groupType: 'aa',
     locationFk: 1,
@@ -84,6 +88,7 @@ export const hendersonMeetings: Meeting[] = [
     open: true
   },
   {
+    meetingId: 5,
     meetingName: 'Newcomers 4PM',
     groupType: 'aa',
     locationFk: 1,
@@ -94,6 +99,7 @@ export const hendersonMeetings: Meeting[] = [
     open: true
   },
   {
+    meetingId: 6,
     meetingName: 'Newcomers 4PM',
     groupType: 'aa',
     locationFk: 1,
@@ -104,6 +110,7 @@ export const hendersonMeetings: Meeting[] = [
     open: true
   },
   {
+    meetingId: 7,
     meetingName: 'Principles Before Personalities',
     groupType: 'aa',
     locationFk: 4,
@@ -114,6 +121,7 @@ export const hendersonMeetings: Meeting[] = [
     open: true
   },
   {
+    meetingId: 8,
     meetingName: 'Principles Before Personalities',
     groupType: 'aa',
     locationFk: 4,
@@ -124,6 +132,7 @@ export const hendersonMeetings: Meeting[] = [
     open: true
   },
   {
+    meetingId: 9,
     meetingName: 'Quiet Minds Meditation',
     groupType: 'aa',
     locationFk: 4,
@@ -134,6 +143,7 @@ export const hendersonMeetings: Meeting[] = [
     open: true
   },
   {
+    meetingId: 10,
     meetingName: "Men's Eating Meeting",
     groupType: 'aa',
     locationFk: 2,
@@ -145,6 +155,7 @@ export const hendersonMeetings: Meeting[] = [
     mensMeeting: true
   },
   {
+    meetingId: 11,
     meetingName: "Men's Eating Meeting",
     groupType: 'aa',
     locationFk: 2,
@@ -156,6 +167,7 @@ export const hendersonMeetings: Meeting[] = [
     mensMeeting: true
   },
   {
+    meetingId: 12,
     meetingName: "Men's Eating Meeting",
     groupType: 'aa',
     day: Day.Wednesday,
@@ -167,6 +179,7 @@ export const hendersonMeetings: Meeting[] = [
     mensMeeting: true
   },
   {
+    meetingId: 13,
     meetingName: "Men's Eating Meeting",
     groupType: 'aa',
     day: Day.Thursday,
@@ -178,6 +191,7 @@ export const hendersonMeetings: Meeting[] = [
     mensMeeting: true
   },
   {
+    meetingId: 14,
     meetingName: "Men's Eating Meeting",
     groupType: 'aa',
     locationFk: 2,
@@ -189,6 +203,7 @@ export const hendersonMeetings: Meeting[] = [
     mensMeeting: true
   },
   {
+    meetingId: 15,
     meetingName: 'Women Standing Sober',
     groupType: 'aa',
     locationFk: 1,
@@ -200,6 +215,7 @@ export const hendersonMeetings: Meeting[] = [
     womensMeeting: true
   },
   {
+    meetingId: 16,
     meetingName: 'Daily Reflections',
     groupType: 'aa',
     locationFk: 4,
@@ -210,6 +226,7 @@ export const hendersonMeetings: Meeting[] = [
     open: true
   },
   {
+    meetingId: 17,
     meetingName: 'Daily Reflections',
     groupType: 'aa',
     locationFk: 4,
@@ -220,6 +237,7 @@ export const hendersonMeetings: Meeting[] = [
     open: true
   },
   {
+    meetingId: 18,
     meetingName: 'Daily Reflections',
     groupType: 'aa',
     locationFk: 4,
@@ -230,6 +248,7 @@ export const hendersonMeetings: Meeting[] = [
     open: true
   },
   {
+    meetingId: 19,
     meetingName: 'Daily Reflections',
     groupType: 'aa',
     locationFk: 4,
@@ -240,6 +259,7 @@ export const hendersonMeetings: Meeting[] = [
     open: true
   },
   {
+    meetingId: 20,
     meetingName: 'Daily Reflections',
     groupType: 'aa',
     locationFk: 4,
@@ -250,6 +270,7 @@ export const hendersonMeetings: Meeting[] = [
     open: true
   },
   {
+    meetingId: 21,
     meetingName: 'Daily Reflections',
     groupType: 'aa',
     locationFk: 4,
@@ -260,6 +281,7 @@ export const hendersonMeetings: Meeting[] = [
     open: true
   },
   {
+    meetingId: 22,
     meetingName: 'Anthem Sunrise',
     groupType: 'aa',
     locationFk: 3,
@@ -270,6 +292,7 @@ export const hendersonMeetings: Meeting[] = [
     open: true
   },
   {
+    meetingId: 23,
     meetingName: 'Anthem Sunrise',
     groupType: 'aa',
     locationFk: 3,
@@ -280,6 +303,7 @@ export const hendersonMeetings: Meeting[] = [
     open: true
   },
   {
+    meetingId: 24,
     meetingName: 'Anthem Sunrise',
     groupType: 'aa',
     locationFk: 3,

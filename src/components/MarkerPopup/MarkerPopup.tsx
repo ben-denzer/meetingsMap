@@ -2,9 +2,10 @@ import * as React from 'react';
 import Meeting from '../../types/Meeting';
 import MeetingLocation from '../../types/MeetingLocation';
 import { MarkerPopupWrapper } from './MarkerPopupStyles';
-import PopupMeetingDetails from '../PopupMeetingDetails/PopupMeetingDetails';
+import MeetingDetails from '../MeetingDetails/MeetingDetails';
 
 interface Props {
+  isMobile: boolean;
   locationData: MeetingLocation;
   meetingsAtLocation: Meeting[];
 }
@@ -24,7 +25,11 @@ const MarkerPopup: React.SFC<Props> = (props: Props) => {
     `${m.groupType}${m.meetingName}${m.day}${m.hour}${m.min}${m.type}`;
 
   const meetingDetails = props.meetingsAtLocation.map(meeting => (
-    <PopupMeetingDetails key={createKey(meeting)} meetingInfo={meeting} />
+    <MeetingDetails
+      key={createKey(meeting)}
+      inPopup={true}
+      meetingInfo={meeting}
+    />
   ));
   return (
     <MarkerPopupWrapper>
@@ -44,7 +49,7 @@ const MarkerPopup: React.SFC<Props> = (props: Props) => {
           <span className="noteLabel">Notes:</span> {locationNotes}
         </div>
       )}
-      {meetingDetails}
+      {props.isMobile && meetingDetails}
     </MarkerPopupWrapper>
   );
 };

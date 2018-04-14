@@ -7,10 +7,12 @@ import { getLocations, getMeetings } from '../../api/getData';
 import MapCoords from '../../types/MapCoords';
 import MeetingLocation from '../../types/MeetingLocation';
 import Meeting from '../../types/Meeting';
+import { mobileWidth } from '../../config/styleConfig';
 
 import { MapWrapper } from './MapStyles';
 import MapMarker from '../MapMarker/MapMarker';
 import UserMarker from '../UserMarker/UserMarker';
+import MeetingList from '../MeetingList/MeetingList';
 
 interface Props {
   defaultCenter: MapCoords;
@@ -20,6 +22,7 @@ interface Props {
 interface State {
   center: MapCoords | undefined; // Can't be null for google-map-react
   hoveredId: number | null;
+  isMobile: boolean;
   meetingLocations: MeetingLocation[];
   meetings: Meeting[];
   selectedLocation: number | null;
@@ -34,6 +37,7 @@ class SimpleMap extends React.Component<Props, State> {
     this.state = {
       center: undefined,
       hoveredId: null,
+      isMobile: true,
       meetingLocations: [],
       meetings: [],
       selectedLocation: null,
@@ -41,6 +45,7 @@ class SimpleMap extends React.Component<Props, State> {
       zoom: undefined
     };
 
+    this.checkForMobile = this.checkForMobile.bind(this);
     this.getData = this.getData.bind(this);
     this.getUserLocation = this.getUserLocation.bind(this);
     this.getUserLocationSuccess = this.getUserLocationSuccess.bind(this);
@@ -52,9 +57,22 @@ class SimpleMap extends React.Component<Props, State> {
     this.init();
   }
 
+  componentDidMount() {
+    this.checkForMobile();
+    window.addEventListener('resize', this.checkForMobile);
+  }
+
   init(): void {
     this.getUserLocation();
     this.getData();
+  }
+
+  checkForMobile() {
+    if (window.innerWidth < mobileWidth) {
+      this.setState({ isMobile: true });
+    } else {
+      this.setState({ isMobile: false });
+    }
   }
 
   getData(): void {
@@ -104,7 +122,13 @@ class SimpleMap extends React.Component<Props, State> {
         return m.locationId === id && m;
       }
     )[0].coords;
-    this.setState({ center: locationCoords, selectedLocation: id, zoom: 16 });
+    if (this.state.isMobile) {
+      this.setState({ selectedLocation: id });
+    } else {
+      this.setState({ center: locationCoords }, () => {
+        this.setState({ selectedLocation: id });
+      });
+    }
   }
 
   showMeetingLocations(
@@ -118,6 +142,7 @@ class SimpleMap extends React.Component<Props, State> {
       return (
         <MapMarker
           key={location.locationId}
+          isMobile={this.state.isMobile}
           lat={location.coords.lat}
           lng={location.coords.lng}
           locationData={location}
@@ -133,6 +158,7 @@ class SimpleMap extends React.Component<Props, State> {
   render(): JSX.Element {
     const {
       center,
+      isMobile,
       meetingLocations,
       meetings,
       userLocation,
@@ -155,6 +181,12 @@ class SimpleMap extends React.Component<Props, State> {
           )}
           {locations}
         </GoogleMapReact>
+        {!isMobile && (
+          <MeetingList
+            meetingLocations={meetingLocations}
+            meetings={meetings}
+          />
+        )}
       </MapWrapper>
     );
   }
