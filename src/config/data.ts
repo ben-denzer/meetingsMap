@@ -1,4 +1,5 @@
-import Meeting, { Day } from '../types/Meeting';
+import Day from '../types/Day';
+import Meeting from '../types/Meeting';
 import MeetingLocation from 'types/MeetingLocation';
 
 export const hendersonMeetingLocations: MeetingLocation[] = [

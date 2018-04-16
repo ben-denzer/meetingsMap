@@ -5,10 +5,10 @@ export const MarkerPopupWrapper = styled.div`
   height: 200px;
   width: 300px;
   font-size: 12px;
-  overflow-y: scroll;
   background: white;
   border-radius: 10px;
   padding: 5px;
+  overflow-y: scroll;
 
   @media (min-width: ${mobileWidth}px) {
     height: auto;
@@ -17,6 +17,7 @@ export const MarkerPopupWrapper = styled.div`
     flex-direction: column;
     justify-content: center;
     padding: 20px;
+    overflow-y: auto;
   }
 
   .clubName {

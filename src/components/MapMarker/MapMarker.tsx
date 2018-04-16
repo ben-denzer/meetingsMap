@@ -37,7 +37,7 @@ const MapMarker: React.SFC<Props> = (props: Props) => {
   }
 
   const popupStatus =
-    selectedLocation === locationData.locationId ? 'showPopup' : '';
+    selectedLocation === locationData.locationId && isMobile ? 'showPopup' : '';
 
   return (
     <MapMarkerWrapper

@@ -4,15 +4,18 @@ import GoogleMapReact from 'google-map-react';
 import { googleMapKey } from '../../config/keys';
 import { getLocations, getMeetings } from '../../api/getData';
 
+import Day from '../../types/Day';
+import Filters from '../../types/Filters';
 import MapCoords from '../../types/MapCoords';
 import MeetingLocation from '../../types/MeetingLocation';
 import Meeting from '../../types/Meeting';
 import { mobileWidth } from '../../config/styleConfig';
 
 import { MapWrapper } from './MapStyles';
+import MapFilterBar from '../MapFilterBar/MapFilterBar';
 import MapMarker from '../MapMarker/MapMarker';
-import UserMarker from '../UserMarker/UserMarker';
 import MeetingList from '../MeetingList/MeetingList';
+import UserMarker from '../UserMarker/UserMarker';
 
 interface Props {
   defaultCenter: MapCoords;
@@ -21,13 +24,13 @@ interface Props {
 
 interface State {
   center: MapCoords | undefined; // Can't be null for google-map-react
-  hoveredId: number | null;
+  filters: Filters;
   isMobile: boolean;
   meetingLocations: MeetingLocation[];
   meetings: Meeting[];
   selectedLocation: number | null;
   userLocation: MapCoords | null;
-  zoom: number | undefined; // Can't be null for google-map-react
+  zoom: number;
 }
 
 class SimpleMap extends React.Component<Props, State> {
@@ -36,24 +39,41 @@ class SimpleMap extends React.Component<Props, State> {
 
     this.state = {
       center: undefined,
-      hoveredId: null,
+      filters: {
+        dayOfWeek: Day[Day[new Date().getDay()]]
+      },
       isMobile: true,
       meetingLocations: [],
       meetings: [],
       selectedLocation: null,
       userLocation: null,
-      zoom: undefined
+      zoom: 10
     };
 
-    this.checkForMobile = this.checkForMobile.bind(this);
-    this.getData = this.getData.bind(this);
-    this.getUserLocation = this.getUserLocation.bind(this);
-    this.getUserLocationSuccess = this.getUserLocationSuccess.bind(this);
-    this.getUserLocationError = this.getUserLocationError.bind(this);
-    this.hidePopup = this.hidePopup.bind(this);
-    this.init = this.init.bind(this);
-    this.selectLocation = this.selectLocation.bind(this);
-    this.showMeetingLocations = this.showMeetingLocations.bind(this);
+    const boundFunctions = [
+      'checkForMobile',
+      'filterChanged',
+      'getData',
+      'getUserLocation',
+      'getUserLocationError',
+      'getUserLocationSuccess',
+      'hidePopup',
+      'init',
+      'selectLocation',
+      'showMeetingLocations'
+    ];
+
+    boundFunctions.forEach((a: string): void => (this[a] = this[a].bind(this)));
+    // this.checkForMobile = this.checkForMobile.bind(this);
+    // this.filterChanged = this.filterChanged.bind(this);
+    // this.getData = this.getData.bind(this);
+    // this.getUserLocation = this.getUserLocation.bind(this);
+    // this.getUserLocationSuccess = this.getUserLocationSuccess.bind(this);
+    // this.getUserLocationError = this.getUserLocationError.bind(this);
+    // this.hidePopup = this.hidePopup.bind(this);
+    // this.init = this.init.bind(this);
+    // this.selectLocation = this.selectLocation.bind(this);
+    // this.showMeetingLocations = this.showMeetingLocations.bind(this);
     this.init();
   }
 
@@ -67,12 +87,19 @@ class SimpleMap extends React.Component<Props, State> {
     this.getData();
   }
 
-  checkForMobile() {
+  checkForMobile(): void {
     if (window.innerWidth < mobileWidth) {
       this.setState({ isMobile: true });
     } else {
       this.setState({ isMobile: false });
     }
+  }
+
+  filterChanged(e: React.FormEvent<HTMLSelectElement>): void {
+    const { dataset, value } = e.currentTarget;
+    const filterId = dataset.filterId as string;
+    const filters = { ...this.state.filters, [filterId]: value };
+    this.setState({ filters });
   }
 
   getData(): void {
@@ -89,7 +116,7 @@ class SimpleMap extends React.Component<Props, State> {
         window.navigator.geolocation.getCurrentPosition(
           this.getUserLocationSuccess,
           this.getUserLocationError,
-          { enableHighAccuracy: true, timeout: 10000 }
+          { /* enableHighAccuracy: true, */ timeout: 10000 }
         );
       } catch (e) {
         console.log(e);
@@ -122,13 +149,9 @@ class SimpleMap extends React.Component<Props, State> {
         return m.locationId === id && m;
       }
     )[0].coords;
-    if (this.state.isMobile) {
-      this.setState({ selectedLocation: id });
-    } else {
-      this.setState({ center: locationCoords }, () => {
-        this.setState({ selectedLocation: id });
-      });
-    }
+    this.setState({ zoom: 8 }, () => {
+      this.setState({ center: locationCoords, selectedLocation: id, zoom: 14 });
+    });
   }
 
   showMeetingLocations(
@@ -156,8 +179,10 @@ class SimpleMap extends React.Component<Props, State> {
   }
 
   render(): JSX.Element {
+    console.log(this.state.filters.dayOfWeek);
     const {
       center,
+      filters,
       isMobile,
       meetingLocations,
       meetings,
@@ -165,14 +190,13 @@ class SimpleMap extends React.Component<Props, State> {
       zoom
     } = this.state;
     const locations = this.showMeetingLocations(meetingLocations, meetings);
-    console.log('zoom is', zoom);
     return (
       <MapWrapper onClick={this.hidePopup}>
+        <MapFilterBar filterChanged={this.filterChanged} filters={filters} />
         <GoogleMapReact
           bootstrapURLKeys={{ key: googleMapKey }}
           center={center}
           defaultCenter={this.props.defaultCenter}
-          defaultZoom={this.props.defaultZoom}
           resetBoundsOnResize={true}
           zoom={zoom}
         >

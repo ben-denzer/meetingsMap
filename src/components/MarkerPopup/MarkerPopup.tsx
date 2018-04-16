@@ -21,12 +21,10 @@ const MarkerPopup: React.SFC<Props> = (props: Props) => {
     website,
     zip
   } = props.locationData;
-  const createKey = (m: Meeting): string =>
-    `${m.groupType}${m.meetingName}${m.day}${m.hour}${m.min}${m.type}`;
 
   const meetingDetails = props.meetingsAtLocation.map(meeting => (
     <MeetingDetails
-      key={createKey(meeting)}
+      key={meeting.meetingId}
       inPopup={true}
       meetingInfo={meeting}
     />

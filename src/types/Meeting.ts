@@ -1,12 +1,4 @@
-enum Day {
-  Sunday,
-  Monday,
-  Tuesday,
-  Wednesday,
-  Thursday,
-  Friday,
-  Saturday
-}
+import Day from './Day';
 
 interface Meeting {
   meetingId: number;
@@ -36,5 +28,5 @@ const mockMeeting = {
   meetingNotes: 'Here are some notes for the meeting'
 };
 
-export { Day, mockMeeting };
+export { mockMeeting };
 export default Meeting;
