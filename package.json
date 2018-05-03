@@ -3,14 +3,14 @@
   "version": "0.1.0",
   "private": true,
   "prettier": {
-    "printWidth": 100
+    "printWidth": 100,
+    "singleQuote": true
   },
   "dependencies": {
     "@types/enzyme-adapter-react-16": "^1.0.2",
     "@types/react-redux": "^5.0.15",
     "enzyme-adapter-react-16": "^1.1.1",
-    "google-map-react":
-      "stephenfarrar/google-map-react#7100a1408ddabd96d2b10bbad3782a12044e48e1",
+    "google-map-react": "^1.0.0",
     "react": "^16.3.1",
     "react-dom": "^16.3.1",
     "react-redux": "^5.0.7",

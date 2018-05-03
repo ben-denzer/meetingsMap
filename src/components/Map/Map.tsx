@@ -164,7 +164,7 @@ class SimpleMap extends React.Component<Props, State> {
     });
   }
 
-  render() {
+  render(): JSX.Element {
     const {
       allMeetings,
       center,
