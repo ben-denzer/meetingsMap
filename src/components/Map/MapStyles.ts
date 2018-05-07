@@ -1,9 +1,5 @@
 import styled from 'styled-components';
-import {
-  filterHeight,
-  headerHeight,
-  mobileWidth
-} from '../../config/styleConfig';
+import { filterHeight, headerHeight, mobileWidth } from '../../config/styleConfig';
 
 export const MapWrapper = styled.div`
   width: 100%;

@@ -7,8 +7,6 @@ const filterChanged = jest.fn();
 
 describe('MapFilterBar', () => {
   it('should render without crashing', () => {
-    shallow(
-      <MapFilterBar filterChanged={filterChanged} filters={mockFilters} />
-    );
+    shallow(<MapFilterBar filterChanged={filterChanged} filters={mockFilters} />);
   });
 });

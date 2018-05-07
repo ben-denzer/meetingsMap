@@ -40,9 +40,7 @@ const MeetingDetails: React.SFC<Props> = (props: Props) => {
         {groupType.toUpperCase()} - {meetingName}
       </div>
       {!props.inPopup &&
-        props.locationInfo && (
-          <LocationDetails locationInfo={props.locationInfo} />
-        )}
+        props.locationInfo && <LocationDetails locationInfo={props.locationInfo} />}
       <div>
         <span className="day">{Day[day]}</span>{' '}
         <span className="time">{readableTime(hour, min)}</span>{' '}

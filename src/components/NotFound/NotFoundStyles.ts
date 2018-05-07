@@ -1,5 +1,3 @@
 import styled from 'styled-components';
 
-export const NotFoundWrapper = styled.div`
-
-`;
+export const NotFoundWrapper = styled.div``;

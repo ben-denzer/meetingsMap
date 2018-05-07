@@ -1,22 +1,22 @@
-import * as React from "react";
-import GoogleMapReact from "google-map-react";
+import * as React from 'react';
+import GoogleMapReact from 'google-map-react';
 
-import filterAndSortMeetings from "../../utils/filterAndSortMeetings";
-import { googleMapKey } from "../../config/keys";
-import { getLocations, getMeetings } from "../../api/getData";
+import filterAndSortMeetings from '../../utils/filterAndSortMeetings';
+import { googleMapKey } from '../../config/keys';
+import { getLocations, getMeetings } from '../../api/getData';
 
-import Day from "../../types/Day";
-import Filters from "../../types/Filters";
-import MapCoords from "../../types/MapCoords";
-import MeetingLocation from "../../types/MeetingLocation";
-import Meeting from "../../types/Meeting";
-import { mobileWidth } from "../../config/styleConfig";
+import Day from '../../types/Day';
+import Filters from '../../types/Filters';
+import MapCoords from '../../types/MapCoords';
+import MeetingLocation from '../../types/MeetingLocation';
+import Meeting from '../../types/Meeting';
+import { mobileWidth } from '../../config/styleConfig';
 
-import { MapWrapper } from "./MapStyles";
-import MapFilterBar from "../MapFilterBar/MapFilterBar";
-import MapMarker from "../MapMarker/MapMarker";
-import MeetingList from "../MeetingList/MeetingList";
-import UserMarker from "../UserMarker/UserMarker";
+import { MapWrapper } from './MapStyles';
+import MapFilterBar from '../MapFilterBar/MapFilterBar';
+import MapMarker from '../MapMarker/MapMarker';
+import MeetingList from '../MeetingList/MeetingList';
+import UserMarker from '../UserMarker/UserMarker';
 
 interface Props {
   defaultCenter: MapCoords;
@@ -52,16 +52,16 @@ class SimpleMap extends React.Component<Props, State> {
     };
 
     const boundFunctions: string[] = [
-      "checkForMobile",
-      "filterChanged",
-      "getData",
-      "getUserLocation",
-      "getUserLocationError",
-      "getUserLocationSuccess",
-      "hidePopup",
-      "init",
-      "selectLocation",
-      "showMeetingLocations"
+      'checkForMobile',
+      'filterChanged',
+      'getData',
+      'getUserLocation',
+      'getUserLocationError',
+      'getUserLocationSuccess',
+      'hidePopup',
+      'init',
+      'selectLocation',
+      'showMeetingLocations'
     ];
 
     boundFunctions.forEach((a: string): void => (this[a] = this[a].bind(this)));
@@ -70,7 +70,7 @@ class SimpleMap extends React.Component<Props, State> {
 
   componentDidMount(): void {
     this.checkForMobile();
-    window.addEventListener("resize", this.checkForMobile);
+    window.addEventListener('resize', this.checkForMobile);
   }
 
   init(): void {
@@ -102,7 +102,7 @@ class SimpleMap extends React.Component<Props, State> {
   }
 
   getUserLocation(): void {
-    if ("geolocation" in window.navigator) {
+    if ('geolocation' in window.navigator) {
       try {
         window.navigator.geolocation.getCurrentPosition(
           this.getUserLocationSuccess,
@@ -113,7 +113,7 @@ class SimpleMap extends React.Component<Props, State> {
         console.log(e);
       }
     } else {
-      console.log("no geolocation");
+      console.log('no geolocation');
     }
   }
 
@@ -124,7 +124,7 @@ class SimpleMap extends React.Component<Props, State> {
   }
 
   getUserLocationError(err: PositionError): void {
-    console.log("err", err);
+    console.log('err', err);
   }
 
   hidePopup(): void {

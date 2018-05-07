@@ -7,16 +7,7 @@ interface Props {
 }
 
 const LocationDetails: React.SFC<Props> = (props: Props) => {
-  const {
-    clubName,
-    address,
-    city,
-    state,
-    zip,
-    website,
-    phone,
-    locationNotes
-  } = props.locationInfo;
+  const { clubName, address, city, state, zip, website, phone, locationNotes } = props.locationInfo;
 
   return (
     <LocationDetailsWrapper>

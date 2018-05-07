@@ -11,23 +11,10 @@ interface Props {
 }
 
 const MarkerPopup: React.SFC<Props> = (props: Props) => {
-  const {
-    address,
-    city,
-    clubName,
-    locationNotes,
-    phone,
-    state,
-    website,
-    zip
-  } = props.locationData;
+  const { address, city, clubName, locationNotes, phone, state, website, zip } = props.locationData;
 
   const meetingDetails = props.meetingsAtLocation.map(meeting => (
-    <MeetingDetails
-      key={meeting.meetingId}
-      inPopup={true}
-      meetingInfo={meeting}
-    />
+    <MeetingDetails key={meeting.meetingId} inPopup={true} meetingInfo={meeting} />
   ));
   return (
     <MarkerPopupWrapper>

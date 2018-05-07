@@ -11,13 +11,7 @@ export interface Props {
 }
 
 const Enthusiasm = (props: Props): JSX.Element => {
-  const {
-    name,
-    enthusiasmLevel = 1,
-    onDecrement,
-    onIncrement,
-    onReset
-  } = props;
+  const { name, enthusiasmLevel = 1, onDecrement, onIncrement, onReset } = props;
   if (!enthusiasmLevel || enthusiasmLevel < 1) {
     return (
       <div>
@@ -31,9 +25,7 @@ const Enthusiasm = (props: Props): JSX.Element => {
   }
   return (
     <EnthusiasmWrapper>
-      <div className="greeting">
-        Hello {name + getExclamationMarks(enthusiasmLevel)}
-      </div>
+      <div className="greeting">Hello {name + getExclamationMarks(enthusiasmLevel)}</div>
       <div>
         <button id="decrement" onClick={onDecrement}>
           {' '}

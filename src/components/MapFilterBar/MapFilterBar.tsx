@@ -24,11 +24,7 @@ const MapFilterBar: React.SFC<Props> = (props: Props) => {
   return (
     <MapFilterBarWrapper>
       <div className="dropdown">
-        <select
-          data-filter-id="dayOfWeek"
-          value={filters.dayOfWeek}
-          onChange={filterChanged}
-        >
+        <select data-filter-id="dayOfWeek" value={filters.dayOfWeek} onChange={filterChanged}>
           {dayOptions}
         </select>
       </div>
